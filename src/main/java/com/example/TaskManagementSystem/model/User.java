@@ -1,11 +1,17 @@
 package com.example.TaskManagementSystem.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -24,51 +30,4 @@ public class User {
     @OneToMany(mappedBy = "createdBy")
     private List<Task> createdTasks;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public List<Task> getAssignedTasks() {
-        return assignedTasks;
-    }
-
-    public void setAssignedTasks(List<Task> assignedTasks) {
-        this.assignedTasks = assignedTasks;
-    }
-
-    public List<Task> getCreatedTasks() {
-        return createdTasks;
-    }
-
-    public void setCreatedTasks(List<Task> createdTasks) {
-        this.createdTasks = createdTasks;
-    }
-
-    public User() {
-    }
-
-    public User(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
 }
